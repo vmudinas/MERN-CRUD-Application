@@ -12,20 +12,29 @@ class TableRow extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.addItemService.deleteData(this.props.obj._id);
+        this.addItemService.delete(this.props.obj.id);
     }
 
     render() {
         return (
             <tr>
                 <td>
-                    {this.props.obj._id}
+                    {this.props.obj.id}
                 </td>
                 <td>
-                    {this.props.obj.item}
+                    {this.props.obj.employee_name}
                 </td>
                 <td>
-                    <Link to={"edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
+                    {this.props.obj.employee_salary}
+                </td>
+                <td>
+                    {this.props.obj.employee_age}
+                </td>
+                <td>
+                    {this.props.obj.profile_image}
+                </td>
+                <td>
+                    <Link to={"edit/"+this.props.obj.id} className="btn btn-primary">Edit</Link>
                 </td>
                 <td>
                     <form onSubmit={this.handleSubmit}>

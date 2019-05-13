@@ -5,16 +5,16 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "repository": "https://github.com/nurislam03/MERN-CRUD-Application.git",
-  "author": "Nur Islam",
+  "repository": "",
+  "author": "Vytautas Mudinas",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.5.1",
-    "body-parser": "^1.18.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "mongodb": "^3.0.1",
-    "mongoose": "^5.0.1",
-    "nodemon": "^1.14.11"
+    "bluebird": "3.5.4",
+    "body-parser": "1.19.0",
+    "cors": "2.8.5",
+    "express": "4.16.4",
+    "mongodb": "3.2.4",
+    "mongoose": "5.5.7",
+    "nodemon": "1.19.0"
   }
 }

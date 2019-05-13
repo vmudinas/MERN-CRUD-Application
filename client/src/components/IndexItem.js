@@ -14,7 +14,7 @@ class IndexItem extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('http://localhost:4200/items')
+        axios.get('http://dummy.restapiexample.com/api/v1/employees')
         .then((response) => {
             this.setState({
                 items: response.data
@@ -36,13 +36,26 @@ class IndexItem extends Component {
     render() {
         return (
             <div className="container">
-                <h1 className='text-center'>MERN CRUD APPLICATION</h1>
+                <h1 className='text-center'>Employee Manager</h1>
                 <br />
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <td>Item Id</td>
-                            <td>Item Name</td>
+                            <td>
+                                Employee Id
+                            </td>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                Salary
+                            </td>
+                            <td>
+                                Age
+                            </td>
+                            <td>
+                               Profile Image
+                            </td>
                         </tr>
                     </thead>
                     <tbody>

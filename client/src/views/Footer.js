@@ -5,8 +5,8 @@ import './FooterCSS.css';
 function CustomFooter(props) {
     return (
         <div>
-            <h5>Copyright @2018</h5>
-            <h6>All rights reserved by Nur Islam</h6>
+            <h5> @2019</h5>
+            <h6>By Vytautas M</h6>
         </div>
     );
 }

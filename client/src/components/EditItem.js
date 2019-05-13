@@ -9,32 +9,37 @@ class EditItem extends Component {
         super(props);
         this.addItemService = new ItemService();
         this.state = {
-            value: ''
+            employee_name: '',
+            employee_salary: '',
+            employee_age: ''
         }
     }
 
     componentDidMount = () => {
-        axios.get('http://localhost:4200/items/edit/'+this.props.match.params.id)
-        .then((response) => {
+        axios.get('http://dummy.restapiexample.com/api/v1/employee/'+this.props.match.params.id)
+            .then((response) => {
+
             this.setState({
-                value: response.data
+                employee_name: response.data.employee_name,
+                employee_salary: response.data.employee_salary,
+                employee_age: response.data.employee_age
             })
+             
         })
         .catch((error) => {
             console.log(error);
         })
     }
 
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value
-        });
-    }
+    handleNameChange = e => this.setState({ employee_name: e.target.value })
+    handleAgeChange = e => this.setState({ employee_age: e.target.value })
+    handleSalaryChange = e => this.setState({ employee_salary: e.target.value })
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.addItemService.updateDate(this.state.value, this.props.match.params.id);
-        this.props.history.push('/index');
+        console.log(this.state);
+       this.addItemService.update(this.state, this.props.match.params.id);
+       this.props.history.push('/index');
     }
 
     render() {
@@ -42,11 +47,32 @@ class EditItem extends Component {
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Edit Item:
+                        Edit Employe Name
                         <input
                             type="text"
-                            value={this.state.value.item}
-                            onChange={this.handleChange}
+                            value={this.state.employee_name}
+                            onChange={this.handleNameChange}
+                            className="form-control"
+                        />
+                     
+                    </label>
+                    <br />
+                    <label>
+                        Edit Employe Salary:
+                        <input
+                            type="text"
+                            value={this.state.employee_salary}
+                            onChange={this.handleSalaryChange}
+                            className="form-control"
+                        />
+                    </label>
+                    <br />
+                    <label>
+                        Edit Employe Age:
+                        <input
+                            type="text"
+                            value={this.state.employee_age}
+                            onChange={this.handleAgeChange}
                             className="form-control"
                         />
                     </label>
